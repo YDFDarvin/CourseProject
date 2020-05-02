@@ -12,6 +12,7 @@ import { ContractsModule } from './contracts/contracts.module';
 import { InventoriesModule } from './inventories/inventories.module';
 import { OrderedItemsModule } from './ordered-items/ordered-items.module';
 import { OrdersModule } from './orders/orders.module';
+import { RefundsModule } from './refunds/refunds.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { OrdersModule } from './orders/orders.module';
     InventoriesModule,
     OrderedItemsModule,
     OrdersModule,
+    RefundsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
