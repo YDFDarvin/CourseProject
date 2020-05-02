@@ -13,6 +13,7 @@ import { InventoriesModule } from './inventories/inventories.module';
 import { OrderedItemsModule } from './ordered-items/ordered-items.module';
 import { OrdersModule } from './orders/orders.module';
 import { RefundsModule } from './refunds/refunds.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { RefundsModule } from './refunds/refunds.module';
     OrderedItemsModule,
     OrdersModule,
     RefundsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
