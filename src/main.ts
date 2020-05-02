@@ -9,7 +9,6 @@ import { AppModule } from './app.module';
     .setTitle('Items example')
     .setDescription('The Item API description')
     .setVersion('1.0')
-    .addTag('item')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
