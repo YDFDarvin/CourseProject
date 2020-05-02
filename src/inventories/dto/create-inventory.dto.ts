@@ -1,21 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 
-export class CreateDealerDto {
+export class CreateInventoryDto {
   @ApiProperty()
   readonly _id: Types.ObjectId;
 
   @ApiProperty({
-    type: String,
-    example: 'crankshaft',
+    type: Number,
+    example: 666,
   })
-  readonly name: String;
-
-  @ApiProperty({
-    type: String,
-    example: 'This is crankshaft. Used to convert ICE energy in to mechanic work.',
-  })
-  readonly description: String;
+  readonly amount: Number;
 
   @ApiProperty({
     type: String,
@@ -27,13 +21,7 @@ export class CreateDealerDto {
     type: String,
     example: '8fsd89fd9df9898fd98df6fd',
   })
-  readonly contract_id: String;
-
-  @ApiProperty({
-    type: String,
-    example: 'sdfgsdgfs',
-  })
-  readonly type: String;
+  readonly warehouse_id: String;
 
   @ApiProperty({
     type: String,

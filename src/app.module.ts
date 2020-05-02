@@ -8,6 +8,8 @@ import { WishesModule } from './wishes/wishes.module';
 import { RetailsModule } from './retails/retails.module';
 import { DealersModule } from './dealers/dealers.module';
 import { WarehousesModule } from './warehouses/warehouses.module';
+import { ContractsModule } from './contracts/contracts.module';
+import { InventoriesModule } from './inventories/inventories.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { WarehousesModule } from './warehouses/warehouses.module';
     RetailsModule,
     DealersModule,
     WarehousesModule,
+    ContractsModule,
+    InventoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

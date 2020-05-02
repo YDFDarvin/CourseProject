@@ -1,27 +1,21 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 
-export class CreateWarehouseDto {
+export class CreateContractDto {
   @ApiProperty()
   readonly _id: Types.ObjectId;
 
   @ApiProperty({
     type: String,
-    example: 'Residence of the President Vladimir Putin',
+    example: 'Slavery Agreement',
   })
-  readonly name: String;
+  readonly header: String;
 
   @ApiProperty({
     type: String,
-    example: 'Kremlin, Moscow',
+    example: 'now r u mine',
   })
-  readonly address: String;
-
-  @ApiProperty({
-    type: Number,
-    example: 69,
-  })
-  readonly congestion: Number;
+  readonly description: String;
 
   @ApiProperty({
     type: String,
