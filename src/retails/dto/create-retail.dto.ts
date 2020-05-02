@@ -1,9 +1,21 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 
-export class CreateDefectiveItemDto {
+export class CreateRetailDto {
   @ApiProperty()
   readonly _id: Types.ObjectId;
+
+  @ApiProperty({
+    type: Number,
+    example: 69.96,
+  })
+  readonly discount: Number;
+
+  @ApiProperty({
+    type: Number,
+    example: 69,
+  })
+  readonly threshold_quantity: Number;
 
   @ApiProperty({
     type: String,

@@ -5,6 +5,9 @@ import { AppService } from './app.service';
 import { ItemsModule } from './items/items.module';
 import { DefectiveItemsModule } from './defective-items/defective-items.module';
 import { WishesModule } from './wishes/wishes.module';
+import { RetailsModule } from './retails/retails.module';
+import { DealersModule } from './dealers/dealers.module';
+import { WarehousesModule } from './warehouses/warehouses.module';
 
 @Module({
   imports: [
@@ -12,6 +15,9 @@ import { WishesModule } from './wishes/wishes.module';
     ItemsModule,
     DefectiveItemsModule,
     WishesModule,
+    RetailsModule,
+    DealersModule,
+    WarehousesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

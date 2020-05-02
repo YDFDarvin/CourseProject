@@ -17,9 +17,15 @@ export class CreateWishDto {
   })
   readonly item_id: String;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: String,
+    example: Date.now(),
+  })
   readonly created_on: Date;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: String,
+    example: Date.now(),
+  })
   readonly updated_at: Date;
 }
