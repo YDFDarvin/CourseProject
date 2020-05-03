@@ -14,6 +14,10 @@ export class DefectiveItemsService implements IItemService {
     return await this.defectiveItemModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IDefectiveItem[]> {
+    return await this.defectiveItemModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IDefectiveItem[]> {
     return await this.defectiveItemModel.find(options).exec();
   }

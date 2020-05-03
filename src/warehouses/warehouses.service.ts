@@ -14,6 +14,10 @@ export class WarehousesService implements IWarehouseService {
     return await this.warehouseModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IWarehouse[]> {
+    return await this.warehouseModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IWarehouse[]> {
     return await this.warehouseModel.find(options).exec();
   }

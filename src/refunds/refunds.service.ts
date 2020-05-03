@@ -14,6 +14,10 @@ export class RefundsService implements IRefundService {
     return await this.itemModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IRefund[]> {
+    return await this.itemModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IRefund[]> {
     return await this.itemModel.find(options).exec();
   }

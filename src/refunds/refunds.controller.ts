@@ -2,6 +2,7 @@ import { Controller, Get, Response, HttpStatus, Param, Body, Post, Request, Patc
 import { RefundsService } from './refunds.service';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
 import { CreateRefundDto } from './dto/create-refund.dto';
+import { CreateAggregationRefundDto } from './dto/create-aggregation-refund.dto';
 
 @ApiTags('refunds')
 @Controller('refunds')
@@ -11,6 +12,13 @@ export class RefundsController {
   @Get()
   public async getItems(@Response() res) {
     const items = await this.refundsService.findAll();
+    return res.status(HttpStatus.OK).json(items);
+  }
+
+  @Post('sort')
+  public async getSortedItems(@Response() res, @Body() body: CreateAggregationRefundDto) {
+    const queryCondition = body;
+    const items = await this.refundsService.findAllAndSort(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

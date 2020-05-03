@@ -14,6 +14,10 @@ export class UsersService implements IUserService {
     return await this.userModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IUser[]> {
+    return await this.userModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IUser[]> {
     return await this.userModel.find(options).exec();
   }

@@ -2,6 +2,7 @@ import { IUser } from './users.interfaces';
 
 export interface IUserService {
   findAll(): Promise<IUser[]>;
+  findAllAndSort(options: object): Promise<IUser[]>;
   findById(ID: string): Promise<IUser | null>;
   findByOptions(options: object): Promise<IUser[] | null>;
   create(items: IUser): Promise<IUser>;

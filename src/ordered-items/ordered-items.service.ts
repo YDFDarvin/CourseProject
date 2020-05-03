@@ -14,6 +14,10 @@ export class OrderedItemsService implements IOrderedItemService {
     return await this.itemModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IOrderedItem[]> {
+    return await this.itemModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IOrderedItem[]> {
     return await this.itemModel.find(options).exec();
   }

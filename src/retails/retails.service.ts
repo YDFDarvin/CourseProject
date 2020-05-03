@@ -14,6 +14,10 @@ export class RetailsService implements IRetailService {
     return await this.retailModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IRetail[]> {
+    return await this.retailModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IRetail[]> {
     return await this.retailModel.find(options).exec();
   }

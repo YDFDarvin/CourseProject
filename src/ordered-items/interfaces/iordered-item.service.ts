@@ -2,6 +2,7 @@ import { IOrderedItem } from './ordered-item.interface';
 
 export interface IOrderedItemService {
   findAll(): Promise<IOrderedItem[]>;
+  findAllAndSort(options: object): Promise<IOrderedItem[]>;
   findById(ID: string): Promise<IOrderedItem | null>;
   findByOptions(options: object): Promise<IOrderedItem[] | null>;
   create(items: IOrderedItem): Promise<IOrderedItem>;

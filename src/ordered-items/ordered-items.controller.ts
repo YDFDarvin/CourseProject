@@ -2,6 +2,7 @@ import { Controller, Get, Response, HttpStatus, Param, Body, Post, Request, Patc
 import { OrderedItemsService } from './ordered-items.service';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
 import { CreateOrderedItemDto } from './dto/create-ordered-item.dto';
+import { CreateAggregationOrderedItemDto } from './dto/create-aggregation-ordered-item.dto';
 
 @ApiTags('ordered-items')
 @Controller('ordered-items')
@@ -11,6 +12,13 @@ export class OrderedItemsController {
   @Get()
   public async getItems(@Response() res) {
     const items = await this.orderedItemsService.findAll();
+    return res.status(HttpStatus.OK).json(items);
+  }
+
+  @Post('sort')
+  public async getSortedItems(@Response() res, @Body() body: CreateAggregationOrderedItemDto) {
+    const queryCondition = body;
+    const items = await this.orderedItemsService.findAllAndSort(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

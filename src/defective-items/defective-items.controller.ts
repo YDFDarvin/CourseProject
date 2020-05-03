@@ -2,6 +2,7 @@ import { Controller, Get, Response, HttpStatus, Param, Body, Post, Request, Patc
 import { DefectiveItemsService } from './defective-items.service';
 import { CreateDefectiveItemDto } from './dto/create-defective-item.dto';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
+import { CreateAggregationDefectiveItemDto } from './dto/create-aggregation-defective-item.dto';
 
 @ApiTags('defective-items')
 @Controller('defective-items')
@@ -11,6 +12,13 @@ export class DefectiveItemsController {
   @Get()
   public async getItems(@Response() res) {
     const items = await this.defectiveItemsService.findAll();
+    return res.status(HttpStatus.OK).json(items);
+  }
+
+  @Post('sort')
+  public async getSortedItems(@Response() res, @Body() body: CreateAggregationDefectiveItemDto) {
+    const queryCondition = body;
+    const items = await this.defectiveItemsService.findAllAndSort(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

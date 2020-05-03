@@ -14,6 +14,10 @@ export class ContractsService implements IContractService {
     return await this.contractModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IContract[]> {
+    return await this.contractModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IContract[]> {
     return await this.contractModel.find(options).exec();
   }

@@ -2,6 +2,7 @@ import { Controller, Get, Response, HttpStatus, Param, Body, Post, Request, Patc
 import { UsersService } from './users.service';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
+import { CreateAggregationUserDto } from './dto/create-aggregation-user.dto';
 
 @ApiTags('users')
 @Controller('users')
@@ -11,6 +12,13 @@ export class UsersController {
   @Get()
   public async getItems(@Response() res) {
     const items = await this.usersService.findAll();
+    return res.status(HttpStatus.OK).json(items);
+  }
+
+  @Post('sort')
+  public async getSortedItems(@Response() res, @Body() body: CreateAggregationUserDto) {
+    const queryCondition = body;
+    const items = await this.usersService.findAllAndSort(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

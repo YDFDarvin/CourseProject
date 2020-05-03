@@ -14,6 +14,10 @@ export class WishesService implements IWishService {
     return await this.wishModel.find().exec();
   }
 
+  async findAllAndSort(options: object): Promise<IWish[]> {
+    return await this.wishModel.find().sort(options).exec();
+  }
+
   async findByOptions(options: object): Promise<IWish[]> {
     return await this.wishModel.find(options).exec();
   }

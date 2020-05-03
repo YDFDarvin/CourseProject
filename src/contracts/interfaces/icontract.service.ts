@@ -2,6 +2,7 @@ import { IContract } from './contract.interface';
 
 export interface IContractService {
   findAll(): Promise<IContract[]>;
+  findAllAndSort(options: object): Promise<IContract[]>;
   findById(ID: string): Promise<IContract | null>;
   findByOptions(options: object): Promise<IContract[] | null>;
   create(items: IContract): Promise<IContract>;
