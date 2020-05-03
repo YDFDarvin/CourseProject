@@ -14,8 +14,8 @@ export class RetailsService implements IRetailService {
     return await this.retailModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IRetail> {
-    return await this.retailModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IRetail[]> {
+    return await this.retailModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IRetail> {

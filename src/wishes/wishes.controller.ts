@@ -14,10 +14,10 @@ export class WishesController {
     return res.status(HttpStatus.OK).json(wishes);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateWishDto) {
     const queryCondition = body;
-    const wishes = await this.wishService.findOne(queryCondition);
+    const wishes = await this.wishService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(wishes);
   }
 

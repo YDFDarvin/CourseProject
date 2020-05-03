@@ -14,10 +14,10 @@ export class ItemsController {
     return res.status(HttpStatus.OK).json(items);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateItemDto) {
     const queryCondition = body;
-    const items = await this.itemsService.findOne(queryCondition);
+    const items = await this.itemsService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

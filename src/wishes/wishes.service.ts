@@ -14,8 +14,8 @@ export class WishesService implements IWishService {
     return await this.wishModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IWish> {
-    return await this.wishModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IWish[]> {
+    return await this.wishModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IWish> {

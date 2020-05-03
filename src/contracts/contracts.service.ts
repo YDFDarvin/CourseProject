@@ -14,8 +14,8 @@ export class ContractsService implements IContractService {
     return await this.contractModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IContract> {
-    return await this.contractModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IContract[]> {
+    return await this.contractModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IContract> {

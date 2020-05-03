@@ -14,10 +14,10 @@ export class DefectiveItemsController {
     return res.status(HttpStatus.OK).json(items);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateDefectiveItemDto) {
     const queryCondition = body;
-    const items = await this.defectiveItemsService.findOne(queryCondition);
+    const items = await this.defectiveItemsService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

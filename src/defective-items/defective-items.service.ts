@@ -14,8 +14,8 @@ export class DefectiveItemsService implements IItemService {
     return await this.defectiveItemModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IDefectiveItem> {
-    return await this.defectiveItemModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IDefectiveItem[]> {
+    return await this.defectiveItemModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IDefectiveItem> {

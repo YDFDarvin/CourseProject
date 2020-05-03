@@ -14,10 +14,10 @@ export class ContractsController {
     return res.status(HttpStatus.OK).json(items);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateContractDto) {
     const queryCondition = body;
-    const items = await this.contractsService.findOne(queryCondition);
+    const items = await this.contractsService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

@@ -14,8 +14,8 @@ export class DealersService implements IDealerService {
     return await this.dealerModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IDealer> {
-    return await this.dealerModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IDealer[]> {
+    return await this.dealerModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IDealer> {

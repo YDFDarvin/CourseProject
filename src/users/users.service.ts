@@ -14,8 +14,8 @@ export class UsersService implements IUserService {
     return await this.userModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IUser> {
-    return await this.userModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IUser[]> {
+    return await this.userModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IUser> {

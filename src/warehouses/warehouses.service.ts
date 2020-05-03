@@ -14,8 +14,8 @@ export class WarehousesService implements IWarehouseService {
     return await this.warehouseModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IWarehouse> {
-    return await this.warehouseModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IWarehouse[]> {
+    return await this.warehouseModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IWarehouse> {

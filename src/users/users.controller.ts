@@ -14,10 +14,10 @@ export class UsersController {
     return res.status(HttpStatus.OK).json(items);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateUserDto) {
     const queryCondition = body;
-    const items = await this.usersService.findOne(queryCondition);
+    const items = await this.usersService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

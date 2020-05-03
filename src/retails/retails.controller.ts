@@ -14,10 +14,10 @@ export class RetailsController {
     return res.status(HttpStatus.OK).json(items);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateRetailDto) {
     const queryCondition = body;
-    const items = await this.retailsService.findOne(queryCondition);
+    const items = await this.retailsService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

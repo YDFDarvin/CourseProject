@@ -14,10 +14,10 @@ export class WarehousesController {
     return res.status(HttpStatus.OK).json(items);
   }
 
-  @Get('find')
-  public async findItem(@Response() res, @Body() body) {
+  @Post('find')
+  public async findItem(@Response() res, @Body() body: CreateWarehouseDto) {
     const queryCondition = body;
-    const items = await this.warehouseService.findOne(queryCondition);
+    const items = await this.warehouseService.findByOptions(queryCondition);
     return res.status(HttpStatus.OK).json(items);
   }
 

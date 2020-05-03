@@ -14,8 +14,8 @@ export class ItemsService implements IItemService {
     return await this.itemModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IItem> {
-    return await this.itemModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IItem[]> {
+    return await this.itemModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IItem> {

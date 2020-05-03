@@ -14,8 +14,8 @@ export class OrdersService implements IOrderService {
     return await this.itemModel.find().exec();
   }
 
-  async findOne(options: object): Promise<IOrder> {
-    return await this.itemModel.findOne(options).exec();
+  async findByOptions(options: object): Promise<IOrder[]> {
+    return await this.itemModel.find(options).exec();
   }
 
   async findById(ID: string): Promise<IOrder> {
